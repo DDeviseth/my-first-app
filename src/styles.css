@@ -1,0 +1,72 @@
+:root {
+  /* Backgrounds */
+  --bg-primary: #F7F8F2;
+  --bg-subtle: #EDF0E7;
+  --bg-accent: #E2E8DA;
+
+  /* Text */
+  --text-primary: #283329;
+  --text-secondary: #727B6D;
+
+  /* Borders and accents */
+  --border-hairline: #DCE2D5;
+  --accent: #526B50;
+  --accent-muted: #A3B397;
+
+  /* Typography */
+  --font-sans: 'Inter', 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Newsreader', 'Instrument Serif', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Geist Mono', monospace;
+
+  --content-width: 1100px;
+  --page-padding: 0;
+  --transition-fast: 160ms ease;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: underline;
+  text-decoration-color: var(--border-hairline);
+  text-underline-offset: 4px;
+  transition: text-decoration-color var(--transition-fast);
+}
+
+a:hover {
+  text-decoration-color: var(--accent);
+}
+
+section {
+  margin: 2.5rem 0;
+}
+
+.section-title {
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}

@@ -1,0 +1,19 @@
+
+.profile-card {
+  padding: 1.25rem;
+  border: 1px solid var(--border-hairline);
+  border-radius: 4px;
+  background: var(--bg-subtle);
+}
+
+.profile-card h2 {
+  margin-top: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.profile-card p {
+  margin-bottom: 0;
+  color: var(--text-secondary);
+}

@@ -1,0 +1,33 @@
+
+.intro {
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border-hairline);
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.intro h1 {
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-size: clamp(2.25rem, 6vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.intro p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+
+@media (max-width: 600px) {
+  .intro h1 {
+    font-size: 2.25rem;
+  }
+}
