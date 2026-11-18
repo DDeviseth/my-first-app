@@ -12,7 +12,7 @@
         @for (item of proficiencies(); track item.tool) {
           <tr>
             <td>{{ item.tool }}</td>
-            <td><span class="level">{{ item.level }}</span></td>
+            <td><span class="level" [attr.data-level]="item.level">{{ item.level }}</span></td>
           </tr>
         }
       </tbody>

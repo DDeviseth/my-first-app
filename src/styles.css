@@ -13,20 +13,42 @@
   --accent: #526B50;
   --accent-muted: #A3B397;
 
+  /* Depth */
+  --radius: 10px;
+  --glow: rgb(163 179 151 / 38%);
+  --shadow-sm: 0 1px 2px rgb(40 51 41 / 6%);
+  --shadow-md: 0 14px 30px -14px rgb(40 51 41 / 28%);
+
   /* Typography */
   --font-sans: 'Inter', 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: 'Newsreader', 'Instrument Serif', Georgia, serif;
   --font-mono: 'JetBrains Mono', 'Geist Mono', monospace;
 
-  --content-width: 1100px;
-  --page-padding: 0;
   --transition-fast: 160ms ease;
 }
 
-
+/* Dark theme: ThemeService sets data-theme="dark" on <html>. */
+:root[data-theme='dark'] {
+  --bg-primary: #141915;
+  --bg-subtle: #1c231d;
+  --bg-accent: #263028;
+  --text-primary: #e4eae1;
+  --text-secondary: #98a394;
+  --border-hairline: #2f3a31;
+  --accent: #9dc29a;
+  --accent-muted: #55715a;
+  --glow: rgb(85 113 90 / 30%);
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%);
+  --shadow-md: 0 16px 32px -14px rgb(0 0 0 / 75%);
+  color-scheme: dark;
+}
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -36,6 +58,31 @@ body {
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   line-height: 1.65;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+/* Soft colored glow in two corners */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(48rem 26rem at 92% -8%, var(--glow), transparent 70%),
+    radial-gradient(36rem 22rem at -8% 108%, var(--glow), transparent 70%);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 button,
@@ -56,10 +103,13 @@ a:hover {
 }
 
 section {
-  margin: 2.5rem 0;
+  margin: 2.75rem 0;
 }
 
 .section-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
   margin: 0 0 1.25rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--border-hairline);
@@ -67,25 +117,68 @@ section {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   font-weight: 400;
-  letter-spacing: 0;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-/* Dark theme: ThemeService sets data-theme="dark" on <html>. */
-:root[data-theme='dark'] {
-  --bg-primary: #141915;
-  --bg-subtle: #1c231d;
-  --bg-accent: #263028;
-  --text-primary: #e4eae1;
-  --text-secondary: #98a394;
-  --border-hairline: #2f3a31;
-  --accent: #9dc29a;
-  --accent-muted: #55715a;
-  color-scheme: dark;
+/* Page load: each block rises into place, one after another */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
-body {
-  transition:
-    background-color var(--transition-fast),
-    color var(--transition-fast);
+app-header,
+app-profile-card,
+app-skills,
+app-projects,
+app-footer,
+.interaction {
+  display: block;
+  animation: rise 0.65s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+app-profile-card { animation-delay: 0.08s; }
+app-skills { animation-delay: 0.16s; }
+.interaction { animation-delay: 0.22s; }
+app-projects { animation-delay: 0.28s; }
+app-footer { animation-delay: 0.34s; }
+
+/* Reading-progress bar (only in browsers that support scroll-driven animations) */
+@supports (animation-timeline: scroll()) {
+  @keyframes progress {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    animation: progress linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }

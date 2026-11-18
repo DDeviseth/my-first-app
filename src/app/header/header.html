@@ -1,13 +1,15 @@
 <header class="intro">
+  <p class="eyebrow">Curriculum Vitae</p>
   <h1>{{ fullName() }}</h1>
-  <p>
-    {{ location() }} |
-    {{ phone() }} |
-    <a [href]="'mailto:' + email()">{{ email() }}</a>
-  </p>
+
+  <ul class="contact">
+    <li><span>Location</span>{{ location() }}</li>
+    <li><span>Phone</span>{{ phone() }}</li>
+    <li><span>Email</span><a [href]="'mailto:' + email()">{{ email() }}</a></li>
+  </ul>
 </header>
 
 <section>
   <h2 class="section-title">Personal Profile</h2>
-  <p>{{ profile() }}</p>
+  <p class="lead">{{ profile() }}</p>
 </section>

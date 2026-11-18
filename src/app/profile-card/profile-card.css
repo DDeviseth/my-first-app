@@ -1,19 +1,33 @@
-
 .profile-card {
-  padding: 1.25rem;
-  border: 1px solid var(--border-hairline);
-  border-radius: 4px;
-  background: var(--bg-subtle);
+  position: relative;
+  overflow: hidden;
+  padding: 1.5rem;
+  border: 1px solid var(--accent-muted);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--bg-subtle), var(--bg-accent));
+  box-shadow: var(--shadow-sm);
 }
 
 .profile-card h2 {
-  margin-top: 0;
-  font-size: 1.125rem;
+  margin: 0 0 0.5rem;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: -0.025em;
 }
 
 .profile-card p {
-  margin-bottom: 0;
+  margin: 0 0 1rem;
   color: var(--text-secondary);
+}
+
+.profile-card .tag {
+  display: inline-block;
+  margin: 0;
+  padding: 3px 12px;
+  border: 1px solid var(--accent-muted);
+  border-radius: 999px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
 }

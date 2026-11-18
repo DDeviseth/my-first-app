@@ -6,25 +6,24 @@
 }
 
 .toggle {
-  padding: 0.5rem 0.9rem;
+  padding: 0.5rem 1rem;
   border: 1px solid var(--border-hairline);
   border-radius: 999px;
-  background: var(--bg-subtle);
+  background: color-mix(in srgb, var(--bg-subtle) 80%, transparent);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-sm);
   color: var(--accent);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   cursor: pointer;
   transition:
     background-color var(--transition-fast),
-    border-color var(--transition-fast);
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .toggle:hover {
   background: var(--bg-accent);
   border-color: var(--accent-muted);
-}
-
-.toggle:focus-visible {
-  outline: 1px solid var(--accent);
-  outline-offset: 3px;
+  transform: translateY(-1px);
 }

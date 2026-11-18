@@ -17,7 +17,7 @@ export class App {
   // The parent (App) owns all CV data and passes it down to the children.
   fullName = 'Kenaz Brian M. Yañez';
   location = 'Angeles City, Pampanga';
-  email = 'yanezkenazbrian.com';
+  email = 'yanezkenazbrian@gmail.com';
   phone = '0905 367 9140';
 
   profile = 'I am a student interested in web development. I enjoy learning new technologies and building useful applications.';
