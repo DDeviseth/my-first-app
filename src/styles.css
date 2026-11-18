@@ -70,3 +70,22 @@ section {
   letter-spacing: 0;
   text-transform: uppercase;
 }
+
+/* Dark theme: ThemeService sets data-theme="dark" on <html>. */
+:root[data-theme='dark'] {
+  --bg-primary: #141915;
+  --bg-subtle: #1c231d;
+  --bg-accent: #263028;
+  --text-primary: #e4eae1;
+  --text-secondary: #98a394;
+  --border-hairline: #2f3a31;
+  --accent: #9dc29a;
+  --accent-muted: #55715a;
+  color-scheme: dark;
+}
+
+body {
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}

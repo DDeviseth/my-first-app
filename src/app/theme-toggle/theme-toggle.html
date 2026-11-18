@@ -1,0 +1,12 @@
+<button
+  type="button"
+  class="toggle"
+  [attr.aria-pressed]="theme.isDark()"
+  aria-label="Toggle dark mode"
+  (click)="theme.toggle()">
+  @if (theme.isDark()) {
+    Light mode
+  } @else {
+    Dark mode
+  }
+</button>

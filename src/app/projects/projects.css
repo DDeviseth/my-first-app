@@ -1,0 +1,147 @@
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.search {
+  flex: 1 1 220px;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border-hairline);
+  border-radius: 4px;
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+  font: inherit;
+}
+
+.search:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.filter-chip {
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--accent-muted);
+  border-radius: 999px;
+  background: var(--bg-accent);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+
+.count {
+  margin: 0.9rem 0;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+ul {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.card {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border-hairline);
+  border-radius: 4px;
+  background: var(--bg-subtle);
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.card:hover,
+.card.open {
+  border-color: var(--accent-muted);
+  background: var(--bg-accent);
+}
+
+.card-head {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-primary);
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.meta {
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.summary {
+  margin: 0.4rem 0 0.7rem;
+  color: var(--text-secondary);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  padding: 2px 9px;
+  border: 1px solid var(--border-hairline);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.tag.match {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+.details {
+  margin: 0.9rem 0 0;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border-hairline);
+}
+
+.details p {
+  margin: 0 0 0.6rem;
+}
+
+.link {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+
+.empty {
+  padding: 1.25rem;
+  border: 1px dashed var(--border-hairline);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .card-head {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}

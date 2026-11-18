@@ -1,0 +1,61 @@
+<section>
+  <h2 class="section-title">Projects</h2>
+
+  <div class="toolbar">
+    <input
+      type="search"
+      class="search"
+      placeholder="Search projects..."
+      aria-label="Search projects"
+      [value]="query()"
+      (input)="onSearch($event)" />
+
+    @if (skillFilter()) {
+      <button type="button" class="filter-chip" (click)="clearFilter()">
+        Skill: {{ skillFilter() }} &times;
+      </button>
+    }
+  </div>
+
+  <p class="count">Showing {{ filtered().length }} of {{ projects.length }} projects</p>
+
+  <ul>
+    @for (project of filtered(); track project.id) {
+      <li class="card" [class.open]="expandedId() === project.id">
+        <button
+          type="button"
+          class="card-head"
+          [attr.aria-expanded]="expandedId() === project.id"
+          (click)="toggle(project.id)">
+          <span class="name">{{ project.name }}</span>
+          <span class="meta">{{ project.category | uppercase }} · {{ project.year }}</span>
+        </button>
+
+        <p class="summary">{{ project.summary }}</p>
+
+        <div class="tags">
+          @for (skill of project.skills; track skill) {
+            <span class="tag" [class.match]="skill === skillFilter()">{{ skill }}</span>
+          }
+        </div>
+
+        @if (expandedId() === project.id) {
+          <div class="details">
+            <p>{{ project.details }}</p>
+            @if (project.url) {
+              <a class="link" [href]="project.url" target="_blank" rel="noopener">View live site &rarr;</a>
+            }
+          </div>
+        }
+      </li>
+    } @empty {
+      <li class="empty">
+        @if (skillFilter()) {
+          No projects list {{ skillFilter() }} yet.
+        } @else {
+          No projects match your search.
+        }
+      </li>
+    }
+  </ul>
+</section>
