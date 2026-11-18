@@ -52,3 +52,9 @@ ul:hover .skill:not(:hover) {
     grid-template-columns: 1fr;
   }
 }
+
+.skill.active {
+  background: var(--bg-accent);
+  border-color: var(--accent);
+  color: var(--accent);
+}

@@ -1,3 +1,5 @@
+<app-theme-toggle />
+
 <main class="resume">
   <app-header
     [fullName]="fullName"
@@ -10,12 +12,17 @@
 
   <app-skills
     [skills]="skills"
+    [selected]="selectedSkill"
     (skillSelected)="onSkillSelected($event)" />
 
   <section class="interaction">
     <h2 class="section-title">Angular Interaction</h2>
     <p>{{ message }}</p>
   </section>
+
+  <app-projects
+    [skillFilter]="selectedSkill"
+    (filterCleared)="clearSkill()" />
 
   <app-footer
     [fullName]="fullName"

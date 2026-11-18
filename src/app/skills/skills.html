@@ -1,13 +1,14 @@
-
 <section class="skills-section">
   <h2 class="section-title">Key Skills</h2>
 
-  <ul class="work-list">
+  <ul>
     @for (skill of skills(); track skill) {
-      <li class="work-item">
+      <li>
         <button
           type="button"
           class="skill"
+          [class.active]="skill === selected()"
+          [attr.aria-pressed]="skill === selected()"
           (click)="selectSkill(skill)">
           {{ skill }}
         </button>
