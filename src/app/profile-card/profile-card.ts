@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 })
 export class ProfileCard {
   cardTitle = 'A Little About Me';
-  description = 'I am a student learning to build modern web applications with Angular.';
+  description = 'Outside class, I like designing interfaces in Figma and seeing them become real pages. Angular is the newest tool I’m learning.';
 }

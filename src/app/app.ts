@@ -20,7 +20,7 @@ export class App {
   email = 'yanezkenazbrian@gmail.com';
   phone = '0905 367 9140';
 
-  profile = 'I am a student interested in web development. I enjoy learning new technologies and building useful applications.';
+  profile = 'I’m a web development student in Angeles City who enjoys turning ideas into working interfaces. I’ve built a responsive marketing site for CEERIES and RestoRadar, a full-stack restaurant database app, and I’m now learning Angular to build more structured, component-based applications.';
 
   skills = [
     'HTML',
